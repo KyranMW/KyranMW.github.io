@@ -1,7 +1,7 @@
 //arrow grid game
 
 let spaces = 
- [[1,2,1,2,3,3],
+ [[2,3,2,2,3,3],
    [2,1,2,2,1,2],
    [2,4,1,3,2,1],
    [2,1,3,2,2,1],
@@ -41,6 +41,7 @@ function setup() {
 }
 
 function draw() {
+  angleMode(DEGREES);
   background(220);
   displaySpaces();
   //displayDirection();
@@ -64,48 +65,11 @@ function displaySpaces(){
       else if (spaces[y][x] === 5){
         arrow = quintArrow;
       }
-      image(arrow, x*cellWidth, y*cellHeight, cellWidth, cellHeight);
+      push();
+      translate(x*cellWidth + 50, y*cellHeight + 50);
+      rotate(direction[y][x] * 90 + 180);
+      image(arrow, -50, -50, cellWidth, cellHeight);
+      pop();
     }
   }
 }
-
-// function chooseArrow(){
-//   for (let y = 0; y < rows; y++){
-//     for (let x = 0; x < cols; x++){
-//       if (spaces[y][x] === 1){
-//         return singleArrow;
-//       }
-//       else if (spaces[y][x] === 2){
-//         return doubleArrow;
-//       }
-//       else if (spaces[y][x] === 3){
-//         return tripleArrow;
-//       }
-//       else if (spaces[y][x] === 4){
-//         return quadArrow;
-//       }
-//       else if (spaces[y][x] === 5){
-//         return quintArrow;
-//       }
-//     }
-//   }
-// }
-
-// function displayDirection(){
-//   for (let i = 0; i < rows; i++){
-//     for (let j = 0; j < cols; j++){
-//       if (directon[i][j] === 1){
-
-//       }
-//       if (directon[i][j] === 2){
-        
-//       }
-//       if (directon[i][j] === 3){
-        
-//       }
-//       if (directon[i][j] === 4){
-        
-//       }
-//     }
-//   }
-// }
