@@ -1,7 +1,7 @@
 //arrow grid game
 
 let spaces = 
- [[2,3,2,2,3,3],
+ [[1,2,1,2,3,3],
    [2,1,2,2,1,2],
    [2,4,1,3,2,1],
    [2,1,3,2,2,1],
@@ -16,7 +16,15 @@ let direction =
    [2,1,3,4,1,4],
    [2,2,4,1,1,4]];
 
-let rows, cols, cellWidth, cellHeight, arrow;
+let theColor =
+[[0,0,0,0,0,0],
+  [0,0,0,0,0,0],
+  [0,0,0,0,0,0],
+  [0,0,0,0,0,0],
+  [0,0,0,0,0,0],
+  [0,0,0,0,0,0]];
+
+let rows, cols, cellWidth, cellHeight, arrow, p;
 
 let singleArrow;
 let doubleArrow;
@@ -44,7 +52,6 @@ function draw() {
   angleMode(DEGREES);
   background(220);
   displaySpaces();
-  //displayDirection();
 }
 
 function displaySpaces(){
@@ -65,11 +72,34 @@ function displaySpaces(){
       else if (spaces[y][x] === 5){
         arrow = quintArrow;
       }
+      displayColor(x,y);
       push();
       translate(x*cellWidth + 50, y*cellHeight + 50);
       rotate(direction[y][x] * 90 + 180);
+      tint(p);
       image(arrow, -50, -50, cellWidth, cellHeight);
       pop();
     }
+  }
+}
+
+function mousePressed() {
+  let x = Math.floor(mouseX / cellWidth);
+  let y = Math.floor(mouseY / cellHeight);
+
+  if (theColor[y][x] === 1) {
+    theColor[y][x] = 0;
+  }
+  else if (theColor[y][x] === 0) {
+    theColor[y][x] = 1;
+  }
+}
+
+function displayColor(x,y){
+  if (theColor[y][x] === 0){
+    p = "white";
+  }
+  else if (theColor[y][x] === 1){
+    p = "red";
   }
 }
