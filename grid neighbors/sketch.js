@@ -5,7 +5,7 @@ let rows, cols, cellWidth, cellHeight;
 let music;
 
 function preload(){
-  music = loadSound('assets/background music.mp3');
+  music = loadSound("assets/background music.mp3");
 }
 
 function setup() {
@@ -48,10 +48,10 @@ function displayGrid(){
   for (let y = 0; y < rows; y++){
     for (let x = 0; x < cols; x++){
       if (grid[y][x] === 0){
-        fill('blue');
+        fill("blue");
       }
       if (grid[y][x] === 1){
-        fill('black');
+        fill("black");
       }
       rect(x*cellWidth, y*cellHeight, cellWidth, cellHeight);
     }
