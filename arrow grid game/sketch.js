@@ -24,7 +24,7 @@ let theColor =
   [0,0,0,0,0,0],
   [0,0,0,0,0,0]];
 
-let rows, cols, cellWidth, cellHeight, arrow, p;
+let rows, cols, cellWidth, cellHeight, arrow, p, nextSpace, nextDirection;
 
 let singleArrow;
 let doubleArrow;
@@ -86,7 +86,6 @@ function displaySpaces(){
 function mousePressed() {
   let x = Math.floor(mouseX / cellWidth);
   let y = Math.floor(mouseY / cellHeight);
-
   if (theColor[y][x] === 1) {
     theColor[y][x] = 0;
   }
@@ -102,4 +101,9 @@ function displayColor(x,y){
   else if (theColor[y][x] === 1){
     p = "red";
   }
+}
+
+function nextStep(x, y){
+  nextSpace = spaces[y][x];
+  nextDirection = direction[y][x];
 }
