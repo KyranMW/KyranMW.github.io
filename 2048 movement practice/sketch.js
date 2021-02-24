@@ -10,7 +10,7 @@ function setup(){
 
 function draw(){
   background(220);
-  translate()
+  translate();
 }
 
 class num{
@@ -19,4 +19,6 @@ class num{
   }
 }
 
-function drawGrid
+function drawGrid(){
+
+}
